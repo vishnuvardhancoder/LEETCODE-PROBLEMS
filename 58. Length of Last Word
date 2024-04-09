@@ -1,0 +1,13 @@
+#PYTHON
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        strrev = (s[::-1]).strip()
+        count = 0
+        for i in strrev:
+            if(i == " "):
+                break
+            else:
+                count+=1
+        return count
+    
