@@ -1,0 +1,29 @@
+#PYTHON
+
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        students_1 = 0
+        students_0 = 0
+        sandwiches_1 = 0 
+        sandwiches_0 = 0
+
+        for i in range(len(students)):
+            if(students[i] == 0):
+                students_0 += 1
+            elif(students[i] == 1):
+                students_1 += 1
+            elif(sandwiches[i] == 0):
+                sandwiches_0 += 1
+            else:
+                sandwiches_1 += 1
+        if(sandwiches_1 == students_1 and students_0 == sandwiches_0):
+            return 0
+        else:
+            for i in range(len(sandwiches)):
+                if(sandwiches[i] == 0 and students_0):
+                    students_0 -= 1
+                elif(sandwiches[i] == 1 and students_1):
+                    students_1 -= 1
+                else:
+                     break
+        return students_0 + students_1
