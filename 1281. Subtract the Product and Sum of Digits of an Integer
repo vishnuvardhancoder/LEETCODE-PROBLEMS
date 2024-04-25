@@ -1,0 +1,11 @@
+#PYTHON
+
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        sum1 = 0
+        product = 1
+        nlist = [int(x) for x in str(n)]
+        for i in nlist:
+            sum1 += i
+            product *= i
+        return product - sum1
