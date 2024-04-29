@@ -1,0 +1,9 @@
+#PYTHON
+
+class Solution:
+    def numberOfSpecialChars(self, word: str) -> int:
+        count = set()
+        for char in word:
+            if char.lower() != char.upper() and char.lower() in word and char.upper() in word:
+                count.add(char.lower())
+        return len(count)
