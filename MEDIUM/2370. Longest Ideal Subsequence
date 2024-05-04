@@ -1,0 +1,9 @@
+#PYTHON
+
+class Solution:
+    def longestIdealString(self, s: str, k: int) -> int:
+        res = [0] * 128
+        for char in s:
+            i = ord(char)
+            res[i] = max(res[i-k : i+k+1]) + 1
+        return max(res)
