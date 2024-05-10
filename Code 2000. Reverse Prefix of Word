@@ -1,0 +1,17 @@
+#PYTHON
+
+class Solution:
+    def reversePrefix(self, word: str, ch: str) -> str:
+        res = 0
+        for i in range(len(word)):
+            if word[i] == ch:
+                res = i
+                break
+        ans = []
+        for i in range(res+1):
+            ans.append(word[i])
+        ans.reverse()
+        for i in  range(res+1,len(word)):
+            ans.append(word[i])
+        str1 = ""
+        return str1.join(ans)
