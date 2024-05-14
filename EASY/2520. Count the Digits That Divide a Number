@@ -1,0 +1,11 @@
+#PYTHON
+
+class Solution:
+    def countDigits(self, num: int) -> int:
+        count=0
+        for i in str(num):
+            j = int(num)
+            k = int(i)
+            if j%k == 0:
+                count+=1
+        return count
