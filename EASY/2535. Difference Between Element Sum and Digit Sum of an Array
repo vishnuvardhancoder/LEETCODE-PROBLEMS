@@ -1,0 +1,10 @@
+#PYTHON
+
+class Solution:
+    def differenceOfSum(self, nums: List[int]) -> int:
+        elesum = sum(nums)
+        digsum = 0
+        for i in nums:
+            for j in str(i):
+                digsum += int(j)
+        return elesum - digsum
