@@ -1,0 +1,27 @@
+#PYTHON
+
+class Solution:
+    def getMaximumGold(self, grid: List[List[int]]) -> int:
+        def dfs(i, j):
+            if i < 0 or j < 0 or i >= m or j >= n or grid[i][j] == 0:
+                return 0
+            
+            ans = grid[i][j]
+            grid[i][j] = 0  
+            
+            max_gold = 0
+            for x, y in [(i+1, j), (i-1, j), (i, j-1), (i, j+1)]:
+                max_gold = max(max_gold, dfs(x, y))
+            
+            grid[i][j] = ans  
+            return ans + max_gold
+        
+        m, n = len(grid), len(grid[0])
+        max_gold = 0
+        
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] > 0:
+                    max_gold = max(max_gold, dfs(i, j))
+        
+        return max_gold
