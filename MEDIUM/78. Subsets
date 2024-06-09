@@ -1,0 +1,11 @@
+#PYTHON
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        def sublists(start,path):
+            result.append(path)
+            for i in range(start,len(nums)):
+                sublists(i+1,path + [nums[i]])
+        result = []
+        sublists(0,[])
+        return result
