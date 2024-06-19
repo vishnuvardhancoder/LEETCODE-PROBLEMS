@@ -1,0 +1,12 @@
+#PYTHON
+
+class Solution:
+    def numberGame(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        res=[]
+        while(len(nums)!=0):
+            alice = nums.pop(0)
+            bob = nums.pop(0)
+            res.append(bob)
+            res.append(alice)
+        return res
