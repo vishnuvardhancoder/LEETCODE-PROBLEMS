@@ -1,0 +1,9 @@
+#PYTHON
+
+class Solution:
+    def specialArray(self, nums: List[int]) -> int:
+        nums.sort(reverse=True)
+        for x in range(len(nums) + 1):
+            if x <= len(nums) and (x == len(nums) or nums[x] < x):
+                return x if (x == 0 or nums[x - 1] >= x) else -1
+        return -1
