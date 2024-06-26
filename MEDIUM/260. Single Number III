@@ -1,0 +1,14 @@
+#PYTHON
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        dum = []
+        mul =[]
+        for i in range(len(nums)):
+            for j in range(i+1,len(nums)):
+                if nums[i]==nums[j] and nums[i] not in mul:
+                    mul.append(nums[i])
+        for num in nums:
+            if num not in mul:
+                dum.append(num)
+        return dum
