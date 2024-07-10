@@ -1,0 +1,14 @@
+#PYTHON
+
+class Solution:
+    def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
+        seats.sort()
+        students.sort()
+        res = []
+        for i in range(len(seats)):
+            if seats[i] == students[i]:
+                res.append(0)
+            else:
+                diff = abs(seats[i] - students[i])
+                res.append(diff)
+        return sum(res)
