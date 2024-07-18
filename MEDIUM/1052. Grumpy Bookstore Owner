@@ -1,0 +1,22 @@
+#PYTHON
+
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
+        totalsat = 0
+
+        for i, j in zip(grumpy, customers):
+            if(i==0):
+                totalsat+=j
+
+        maxsat = 0
+
+        for i in range(len(grumpy)-minutes+1):
+            sat = totalsat
+            for j in range(i, i+minutes):
+                if(grumpy[j]==1):
+                    sat+=customers[j]
+            if(sat>maxsat):
+                maxsat = sat
+
+
+        return maxsat
